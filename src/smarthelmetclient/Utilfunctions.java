@@ -43,27 +43,18 @@ public class Utilfunctions {
     }
 
     public static void setIconImage(JFrame jf) {
-        File directory = new File(".");
+       // File directory = new File(".");
         try {
-            String path = directory.getCanonicalPath();
-            String s = File.separator;
-            jf.setIconImage(Toolkit.getDefaultToolkit().getImage(path + s + "src" + s + "images" + s + "logo.gif"));
+         //   String path = directory.getCanonicalPath();
+           // String s = File.separator;
+            //jf.setIconImage(Toolkit.getDefaultToolkit().getImage(path + s + "src" + s + "images" + s + "logo.gif"));
+            jf.setIconImage(Toolkit.getDefaultToolkit().getImage("logo.gif"));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Unexpected Error. Exiting application");
         }
     }
     
-    public static void setClosePrompt(JFrame jf) {
-        jf.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                int opt = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit SchedulePro?", "SchedulePro - Exit", JOptionPane.YES_NO_OPTION);
-                if (opt == JOptionPane.YES_OPTION) {
-                    System.exit(0);
-                }
-            }
-        });
-    }
+   
     
    
     private static Toolkit toolkit;
