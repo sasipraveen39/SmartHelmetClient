@@ -18,9 +18,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioFormat;
@@ -112,7 +114,10 @@ public class SmartHelmetClient {
                     }
                 }
 
-            } catch (Exception ex) {
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Unable to connect to the server \nPlease try again latter");
+                System.exit(0);
+            } catch (URISyntaxException ex) {
                 Logger.getLogger(SmartHelmetClient.class.getName()).log(Level.SEVERE, null, ex);
             }
 
